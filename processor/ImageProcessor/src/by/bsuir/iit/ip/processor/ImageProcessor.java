@@ -1,4 +1,4 @@
-package by.bsuir.iit.ip.processer;
+package by.bsuir.iit.ip.processor;
 
 import java.awt.image.BufferedImage;
 

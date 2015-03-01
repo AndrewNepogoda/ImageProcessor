@@ -1,4 +1,4 @@
-package by.bsuir.iit.ip.anaglyph;
+package by.bsuir.iit.ip.processor.anaglyph;
 
 import java.awt.image.BufferedImage;
 
@@ -7,10 +7,7 @@ import java.awt.image.BufferedImage;
  */
 public interface AnaglyphBuilder {
 
-    public BufferedImage buildAnaglyph(BufferedImage leftImage,
+    BufferedImage buildAnaglyph(BufferedImage leftImage,
             BufferedImage rightImage);
 
-    int[][] getLeftMatrix();
-
-    int[][] getRigthMatrix();
 }

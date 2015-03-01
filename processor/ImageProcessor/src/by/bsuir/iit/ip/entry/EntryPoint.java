@@ -7,8 +7,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import by.bsuir.iit.ip.constants.AnaglyphType;
-import by.bsuir.iit.ip.processer.ImageProcesserImpl;
-import by.bsuir.iit.ip.processer.ImageProcessor;
+import by.bsuir.iit.ip.processor.ImageProcesserImpl;
+import by.bsuir.iit.ip.processor.ImageProcessor;
 
 /**
  * @author Andrew Nepogoda Feb 26, 2015

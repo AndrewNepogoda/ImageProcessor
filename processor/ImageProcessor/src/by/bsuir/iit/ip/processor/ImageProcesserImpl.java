@@ -1,9 +1,9 @@
-package by.bsuir.iit.ip.processer;
+package by.bsuir.iit.ip.processor;
 
 import java.awt.image.BufferedImage;
 
-import by.bsuir.iit.ip.anaglyph.AnaglyphProvider;
 import by.bsuir.iit.ip.constants.AnaglyphType;
+import by.bsuir.iit.ip.processor.anaglyph.AnaglyphProvider;
 
 /**
  * @author Andrew Nepogoda Feb 26, 2015
