@@ -4,25 +4,37 @@ package by.bsuir.iit.ip.constants;
  * @author Andrew Nepogoda Feb 26, 2015
  */
 public enum AnaglyphType {
-    COLOR(new int[][] { { 1, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } }, new int[][] {
-            { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } });
+    COLOR(new double[][] { { 1, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } },
+            new double[][] { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } }),
+    TRUE(
+            new double[][] { { 0.299, 0.587, 0.114 }, { 0, 0, 0 }, { 0, 0, 0 } },
+            new double[][] { { 0, 0, 0 }, { 0, 0, 0 }, { 0.299, 0.587, 0.114 } }),
+    GRAY(new double[][] { { 0.299, 0.587, 0.114 }, { 0, 0, 0 }, { 0, 0, 0 } },
+            new double[][] { { 0, 0, 0 }, { 0.299, 0.587, 0.114 },
+                    { 0.299, 0.587, 0.114 } }),
+    HALF_COLOR(new double[][] { { 0.299, 0.587, 0.114 }, { 0, 0, 0 },
+            { 0, 0, 0 } }, new double[][] { { 0, 0, 0 }, { 0, 1, 0 },
+            { 0, 0, 1 } }),
+    OPTIMIZED(new double[][] { { 0, 0.7, 0.3 }, { 0, 0, 0 }, { 0, 0, 0 } },
+            new double[][] { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } });
 
-    private int[][] leftMatrix;
+    private double[][] leftMatrix;
 
-    private int[][] rightMatrix;
+    private double[][] rightMatrix;
 
-    private AnaglyphType(int[][] left, int[][] right) {
+    private AnaglyphType(double[][] left, double[][] right) {
+
         leftMatrix = left;
         rightMatrix = right;
     }
 
-    public int[][] getRightMatrix() {
+    public double[][] getRightMatrix() {
 
         return rightMatrix;
 
     }
 
-    public int[][] getLeftMatrix() {
+    public double[][] getLeftMatrix() {
 
         return leftMatrix;
     }

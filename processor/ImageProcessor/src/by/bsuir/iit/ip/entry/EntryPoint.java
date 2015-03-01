@@ -29,7 +29,7 @@ public class EntryPoint {
             e.printStackTrace();
         }
         BufferedImage sourceImg = processor.buildAnagliph(leftImg, rightImg,
-                AnaglyphType.COLOR);
+                AnaglyphType.OPTIMIZED);
         File outputfile = new File("saved.png");
         ImageIO.write(sourceImg, "png", outputfile);
         System.out.println("view saved image");
