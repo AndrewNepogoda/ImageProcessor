@@ -9,6 +9,8 @@ import by.bsuir.iit.ip.constants.AnaglyphType;
  */
 public interface ImageProcessor {
 
-    public BufferedImage buildAnagliph(BufferedImage leftImage,
-            BufferedImage rightImage, AnaglyphType type);
+    public BufferedImage buildAnagliph(BufferedImage leftImage, BufferedImage rightImage,
+            AnaglyphType type);
+
+    public BufferedImage filter(BufferedImage image);
 }
