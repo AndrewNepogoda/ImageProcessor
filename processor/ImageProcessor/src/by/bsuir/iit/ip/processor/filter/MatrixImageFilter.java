@@ -37,9 +37,7 @@ public class MatrixImageFilter implements ImageFilter {
                 int sourceB = 0;
                 for (int i = 0; i < size; ++i) {
                     for (int j = 0; j < size; ++j) {
-                        int row = x - 1;
-                        int column = y - 1;
-                        Color color = new Color(image.getRGB(row + i, column + j));
+                        Color color = new Color(image.getRGB(x - offset + i, y - offset + j));
                         sourceR += color.getRed() * filterMatrix[i][j];
                         sourceG += color.getGreen() * filterMatrix[i][j];
                         sourceB += color.getBlue() * filterMatrix[i][j];
