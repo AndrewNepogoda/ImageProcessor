@@ -7,9 +7,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import by.bsuir.iit.ip.constants.AnaglyphType;
 import by.bsuir.iit.ip.processor.ImageProcesserImpl;
 import by.bsuir.iit.ip.processor.ImageProcessor;
+import by.bsuir.iit.ip.processor.anaglyph.AnaglyphType;
+import by.bsuir.iit.ip.processor.filter.FilterType;
 
 /**
  * @author Andrew Nepogoda Feb 26, 2015
@@ -40,13 +41,19 @@ public class EntryPoint {
         }
         long start = System.currentTimeMillis();
         System.out.println(start);
-        BufferedImage sourceImg = processor.filter(image);
+        BufferedImage sourceImg1 = processor.filter(image,FilterType.GREY);
+        BufferedImage sourceImg2 = processor.filter(image,FilterType.REVERSE);
+        BufferedImage sourceImg3 = processor.filter(image,FilterType.SOBEL);
         System.out.println("filter image");
         long end = System.currentTimeMillis();
         System.out.println(end);
         System.out.println("Creation time miles:" + (end - start));
-        File outputfile = new File("saved.jpg");
-        ImageIO.write(sourceImg, "jpg", outputfile);
+        File outputfile1 = new File("saved1.jpg");
+        ImageIO.write(sourceImg1, "jpg", outputfile1);
+        File outputfile2 = new File("saved2.jpg");
+        ImageIO.write(sourceImg2, "jpg", outputfile2);
+        File outputfile3 = new File("saved3.jpg");
+        ImageIO.write(sourceImg3, "jpg", outputfile3);
         System.out.println("view saved image");
     
         

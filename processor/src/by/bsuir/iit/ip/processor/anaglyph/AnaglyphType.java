@@ -1,4 +1,4 @@
-package by.bsuir.iit.ip.constants;
+package by.bsuir.iit.ip.processor.anaglyph;
 
 /**
  * @author Andrew Nepogoda Feb 26, 2015

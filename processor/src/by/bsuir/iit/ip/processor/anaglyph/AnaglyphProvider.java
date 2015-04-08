@@ -1,6 +1,5 @@
 package by.bsuir.iit.ip.processor.anaglyph;
 
-import by.bsuir.iit.ip.constants.AnaglyphType;
 
 /**
  * @author Andrew Nepogoda Feb 26, 2015

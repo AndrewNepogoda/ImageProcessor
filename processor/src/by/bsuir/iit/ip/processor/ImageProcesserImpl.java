@@ -2,10 +2,14 @@ package by.bsuir.iit.ip.processor;
 
 import java.awt.image.BufferedImage;
 
-import by.bsuir.iit.ip.constants.AnaglyphType;
 import by.bsuir.iit.ip.processor.anaglyph.AnaglyphProvider;
+import by.bsuir.iit.ip.processor.anaglyph.AnaglyphType;
+import by.bsuir.iit.ip.processor.filter.FilterProvider;
+import by.bsuir.iit.ip.processor.filter.FilterType;
+import by.bsuir.iit.ip.processor.filter.GreyFilter;
 import by.bsuir.iit.ip.processor.filter.ImageFilter;
 import by.bsuir.iit.ip.processor.filter.MatrixImageFilter;
+import by.bsuir.iit.ip.processor.filter.ReverseFilter;
 
 /**
  * @author Andrew Nepogoda Feb 26, 2015
@@ -13,6 +17,8 @@ import by.bsuir.iit.ip.processor.filter.MatrixImageFilter;
 public class ImageProcesserImpl implements ImageProcessor {
 
     private AnaglyphProvider anaglyphProvider = new AnaglyphProvider();
+
+    private FilterProvider filterProvider = new FilterProvider();
 
     @Override
     public BufferedImage buildAnagliph(BufferedImage leftImage, BufferedImage rightImage,
@@ -24,12 +30,9 @@ public class ImageProcesserImpl implements ImageProcessor {
     }
 
     @Override
-    public BufferedImage filter(BufferedImage image) {
+    public BufferedImage filter(BufferedImage image, FilterType type) {
 
-        ImageFilter filter = new MatrixImageFilter(new double[][] { { -1, -1, 1 }, { -2, 0, 2 },
-                { -1, 0, 1 } });
-
+        ImageFilter filter = filterProvider.getFilter(type);
         return filter.process(image);
     }
-
 }
