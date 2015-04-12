@@ -12,6 +12,8 @@ import java.awt.image.WritableRaster;
  */
 public class ImageUtils {
 
+    public static final int MAX_INT_RGB = 16777215;
+
     public static int truncate(int value) {
 
         if (value > 255) {
@@ -22,9 +24,11 @@ public class ImageUtils {
             return value;
         }
     }
-    public static byte[] getBytes(BufferedImage image){
+
+    public static byte[] getBytes(BufferedImage image) {
+
         WritableRaster raster = image.getRaster();
-        DataBufferByte buffer = (DataBufferByte)raster.getDataBuffer();
+        DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
         return buffer.getData();
     }
 }

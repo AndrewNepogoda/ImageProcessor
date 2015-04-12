@@ -14,4 +14,6 @@ public interface ImageProcessor {
             AnaglyphType type);
 
     public BufferedImage filter(BufferedImage image, FilterType type);
+
+    public BufferedImage segmentImage(BufferedImage image, int segmentsCount);
 }
