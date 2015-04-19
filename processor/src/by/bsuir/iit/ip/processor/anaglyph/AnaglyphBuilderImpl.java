@@ -25,7 +25,7 @@ public class AnaglyphBuilderImpl implements AnaglyphBuilder {
         double[][] leftMatrix = dataType.getLeftMatrix();
         double[][] rightMatrix = dataType.getRightMatrix();
         BufferedImage sourceImg = new BufferedImage(leftImage.getWidth(),
-                leftImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+                leftImage.getHeight(), leftImage.getType());
         for (int x = 0; x < leftImage.getWidth(); ++x) {
             for (int y = 0; y < leftImage.getHeight(); ++y) {
                 Color leftColor = new Color(leftImage.getRGB(x, y));

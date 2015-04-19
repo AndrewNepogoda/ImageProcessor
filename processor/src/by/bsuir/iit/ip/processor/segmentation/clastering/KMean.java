@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 import by.bsuir.iit.ip.processor.segmentation.Segmenter;
-import by.bsuir.iit.ip.utils.ImageUtils;
 
 /**
  * @author Andrew Nepogoda Apr 10, 2015
@@ -62,6 +61,7 @@ public class KMean implements Segmenter {
             this.g += rgb >> 8 & 0x000000FF;
             this.b += rgb & 0x000000FF;
             this.pixelCount++;
+            recalculateRGB();
         }
 
         void removePixel(int rgb) {
@@ -70,6 +70,20 @@ public class KMean implements Segmenter {
             this.g -= rgb >> 8 & 0x000000FF;
             this.b -= rgb & 0x000000FF;
             this.pixelCount--;
+            if (this.pixelCount != 0) {
+                recalculateRGB();
+            } else {
+                this.red = this.r;
+                this.green = this.g;
+                this.blue = this.b;
+            }
+        }
+
+        private void recalculateRGB() {
+
+            this.red = this.r / this.pixelCount;
+            this.green = this.g / this.pixelCount;
+            this.blue = this.b / this.pixelCount;
         }
 
         int calculateDistance(int rgb) {
@@ -91,7 +105,8 @@ public class KMean implements Segmenter {
         ImageCluster[] clusters = new ImageCluster[count];
         Random r = new Random();
         for (int i = 0; i < count; ++i) {
-            clusters[i] = new ImageCluster(i, r.nextInt(ImageUtils.MAX_INT_RGB));
+            // random value
+            clusters[i] = new ImageCluster(i, i * count + 1);
         }
         return clusters;
     }
